@@ -54,6 +54,7 @@ comment on column LOGIN_LOG.PROGRAM         is 'SYS_CONTEXT MODULE';
 
 create or replace trigger TRG_LOGIN_LOG_BIR
 before insert on LOGIN_LOG for each row
+/* #Ver:1.0# */
 begin
     :new.ID          := nvl( :new.ID, SEQ_LOGIN_LOG_ID.nextval );
     :new.LOGIN_TIME  := sys_extract_utc( systimestamp );
